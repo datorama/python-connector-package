@@ -1,10 +1,10 @@
 import csv
 
-datorama_out_put_result = []
+output_buffer = []
 
 
 def add_row(rows):
-        datorama_out_put_result.append(rows)
+        output_buffer.append(rows)
 
 
 def add_rows(rows):
@@ -13,26 +13,16 @@ def add_rows(rows):
 
 
 def save():
-        myFile = open('/tmp/fileName', 'wb')
-        with myFile:
-            writer = csv.writer(myFile)
-            writer.writerows(datorama_out_put_result)
-        myFile = open('/tmp/fileName', 'r')
-        with myFile:
-            spamreader = csv.reader(myFile, delimiter=' ', quotechar='|')
-            for row in spamreader:
-                print(row)
+    for row in output_buffer:
+      print(row)
 
 
 
 def save_csv(string):
-        myFile = open('/tmp/fileName', 'wb')
-        with myFile:
-            myFile.write(string)
-        myFile = open('/tmp/fileName', 'r')
-        with myFile:
-            spamreader = csv.reader(myFile, delimiter=' ', quotechar='|')
-            for row in spamreader:
-                print(row)
+        reader = csv.reader(string.split('\n'), delimiter=',')
+        for row in reader:
+            print(row)
+
+
 
 
