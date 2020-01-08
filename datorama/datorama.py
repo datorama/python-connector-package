@@ -32,4 +32,4 @@ def log(log_line):
 
 def print_log():
     for line in datorama_log:
-        print line
+        print (line)
